@@ -6,6 +6,7 @@ int main() {
     int opcao;
     double num1, num2, resultado;
     char continuar = 's';
+    char caractereExtra;
 
     while (continuar == 's') {
         printf("===============================\n");
@@ -22,6 +23,14 @@ int main() {
         if (scanf("%d", &opcao) != 1) {
             printf("\nOpção inválida. Por favor, digite um número de 1 a 5.\n\n");
             while (getchar() != '\n');
+            continue;
+        }
+        caractereExtra = getchar();
+        if (caractereExtra != '\n') {
+            printf("\nOpção inválida. Por favor, digite um número de 1 a 5.\n\n");
+            if (caractereExtra != EOF) {
+                while (getchar() != '\n');
+            }
             continue;
         }
         if (opcao < 1 || opcao > 5) {
